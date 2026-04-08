@@ -1,14 +1,13 @@
-title: Security and Privacy Conference Deadlines
-description: Countdowns to top Security and Privacy conference deadlines.
+title: BK21-Filtered Security Deadlines
+description: Countdowns to sec-deadlines entries that overlap the Pusnow gist with BK21플러스 IF (2018) >= 1.
 author: Bogdan Kulynych
 
-domain: "sec-deadlines.github.io"
-baseurl: ""
+domain: "aals7501.github.io"
+baseurl: "/sec-deadlines"
 
 twitter_username: hiddenmarkov
-github_username: sec-deadlines
+github_username: AALS7501
 github_repo: sec-deadlines
 ga_id: UA-104921371-1
 
 markdown: kramdown
-
