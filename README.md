@@ -1,6 +1,6 @@
 # BK21 Security Deadlines
 
-Site: https://aals7501.github.io/sec-deadlines/
+Site: https://snp-labs.github.io/deadlines/
 
 This repository maintains a GitHub Pages deadline tracker for security, privacy, crypto, and selected distributed systems conferences.
 

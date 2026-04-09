@@ -2,12 +2,12 @@ title: BK21 Security Deadlines
 description: Security, crypto, privacy, and distributed systems deadlines filtered from sec-deadlines by BK21플러스 IF (2018).
 author: Bogdan Kulynych
 
-domain: "aals7501.github.io"
-baseurl: "/sec-deadlines"
+domain: "snp-labs.github.io"
+baseurl: "/deadlines"
 
 twitter_username: hiddenmarkov
-github_username: AALS7501
-github_repo: sec-deadlines
+github_username: snp-labs
+github_repo: deadlines
 ga_id: UA-104921371-1
 
 markdown: kramdown
