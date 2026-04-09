@@ -312,57 +312,62 @@
   year: 2026
   link: https://www.sigmobile.org/mobicom/2026/
   deadline:
-  - 2025-08-27 23:59
   - 2025-09-03 23:59
-  - 2026-03-06 23:59
   - 2026-03-13 23:59
+  comment: Abstract registration required (1 week before deadline AoE).
   date: October 26-30
   place: Austin, Texas, USA
   tags:
   - CONF
+  bk21_plus_if_2018: 4.0
 - name: PODC
   description: ACM Symposium on Principles of Distributed Computing
   year: 2026
   link: https://www.podc.org/podc2026/call-for-papers/
   deadline:
-  - 2026-02-11 23:59
   - 2026-02-16 23:59
+  comment: Abstract registration required (5 days before deadline AoE).
   date: July 6-10
   place: Egham, England
   tags:
   - CONF
+  bk21_plus_if_2018: 3.0
 - name: ICDCS
   description: IEEE International Conference on Distributed Computing Systems
   year: 2026
   link: https://icdcs2026.icdcs.org/calls/call-for-papers/
   deadline:
   - 2026-01-21 23:59
+  comment: Abstract registration due on the same day as the paper deadline (AoE).
   date: June 22-25
   place: Seoul, South Korea
   tags:
   - CONF
+  bk21_plus_if_2018: 3.0
 - name: IPDPS
   description: IEEE International Parallel and Distributed Processing Symposium
   year: 2026
   link: https://www.ipdps.org/ipdps2026/2026-call-for-papers.html
   deadline:
-  - 2025-10-02 23:59
   - 2025-10-09 23:59
+  comment: Abstract registration required (1 week before deadline AoE).
   date: May 25-29
   place: New Orleans, USA
   tags:
   - CONF
+  bk21_plus_if_2018: 2.0
 - name: HPDC
   description: ACM International Symposium on High-Performance Parallel and Distributed Computing
   year: 2026
   link: https://hpdc.sci.utah.edu/2026/calls-cfp.html
   deadline:
-  - 2026-01-29 23:59
   - 2026-02-05 23:59
+  comment: Abstract registration required (1 week before deadline AoE).
   date: July 13-16
   place: Cleveland, OH, USA
   tags:
   - CONF
+  bk21_plus_if_2018: 2.0
 - name: DISC
   description: International Symposium on Distributed Computing
   year: 2026
@@ -374,6 +379,7 @@
   place: Rome, Italy
   tags:
   - CONF
+  bk21_plus_if_2018: 2.0
 - name: HiPC
   description: IEEE International Conference on High Performance Computing, Data, and Analytics
   year: 2026
@@ -385,14 +391,16 @@
   place: TBD
   tags:
   - CONF
+  bk21_plus_if_2018: 1.0
 - name: SRDS
   description: IEEE International Symposium on Reliable Distributed Systems
   year: 2026
   link: https://srds-conference.org/
   deadline:
-  - 2026-04-24 23:59
   - 2026-05-01 23:59
+  comment: Abstract registration required (1 week before deadline AoE).
   date: September 21-25
   place: Rome, Italy
   tags:
   - CONF
+  bk21_plus_if_2018: 1.0
