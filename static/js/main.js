@@ -111,15 +111,18 @@ $(function() {
     if (aIsTba && bIsTba) {
       return 0;
     }
+    var aDiff = aIsTba ? null : today.diff(aDeadline);
+    var bDiff = bIsTba ? null : today.diff(bDeadline);
+    var aIsPast = aIsTba ? false : aDiff > 0;
+    var bIsPast = bIsTba ? false : bDiff > 0;
+
     if (aIsTba) {
-      return 1;
+      return bIsPast ? -1 : 1;
     }
     if (bIsTba) {
-      return -1;
+      return aIsPast ? 1 : -1;
     }
 
-    var aDiff = today.diff(aDeadline);
-    var bDiff = today.diff(bDeadline);
     if (aDiff < 0 && bDiff > 0) {
       return -1;
     }
