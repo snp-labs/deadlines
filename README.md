@@ -24,10 +24,11 @@ Once PrivacyCon or RWC begin publishing proceedings, they'd become fit for inclu
 This fork can be run in an auto-generated mode where `_data/conferences.yml` is rebuilt from:
 
 - `sec-deadlines/sec-deadlines.github.io` upstream conference data
-- the `Pusnow` gist
+- the `Pusnow` gist: `https://gist.github.com/Pusnow/6eb933355b5cb8d31ef1abcb3c3e1206`
 - the condition `BK21플러스 IF (2018) >= 1`
 
-If you enable that workflow, treat `_data/conferences.yml` as generated output and update `scripts/sync_conferences.py` instead of editing the file by hand.
+If you enable that workflow, this repository will periodically read the gist URL above and the upstream sec-deadlines data, then regenerate `_data/conferences.yml`.
+Treat `_data/conferences.yml` as generated output and update `scripts/sync_conferences.py` instead of editing the file by hand.
 
 - Read the data format description below. **Note that the timezone format sign is inverted** (e.g., UTC+7 is written as `Etc/GMT-7`). It's [not a bug][0]. I hate this format too. I'd be happy to move to a different timezone JavaScript library that uses a friendlier format, but I don't have time for that.
 - Update `_data/conferences.yml`. You can do that on GitHub or locally after forking the repo.
