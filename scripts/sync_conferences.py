@@ -18,6 +18,7 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT_PATH = ROOT / "_data" / "conferences.yml"
+MANUAL_CONFERENCES_PATH = ROOT / "_data" / "manual_conferences.yml"
 
 UPSTREAM_CONFERENCES_URL = os.getenv(
     "UPSTREAM_CONFERENCES_URL",
@@ -180,6 +181,15 @@ def dump_yaml(conferences: list[dict]) -> str:
     return header + body
 
 
+def load_manual_conferences() -> list[dict]:
+    if not MANUAL_CONFERENCES_PATH.exists():
+        return []
+    manual = yaml.safe_load(MANUAL_CONFERENCES_PATH.read_text(encoding="utf-8")) or []
+    if not isinstance(manual, list):
+        raise ValueError(f"{MANUAL_CONFERENCES_PATH} must contain a YAML list")
+    return manual
+
+
 def main() -> int:
     upstream_yaml = fetch_text(UPSTREAM_CONFERENCES_URL)
     gist_csv = fetch_text(GIST_CSV_URL)
@@ -213,12 +223,21 @@ def main() -> int:
         generated_conf["bk21_plus_if_2018"] = max(matched_scores)
         filtered.append(generated_conf)
 
+    manual_conferences = load_manual_conferences()
+    existing_keys = {(conf.get("name"), conf.get("year")) for conf in filtered}
+    for conf in manual_conferences:
+        conf_key = (conf.get("name"), conf.get("year"))
+        if conf_key not in existing_keys:
+            filtered.append(conf)
+            existing_keys.add(conf_key)
+
     OUTPUT_PATH.write_text(dump_yaml(filtered), encoding="utf-8")
 
     matched_labels = sorted(conf["name"] for conf in filtered)
 
     print(f"Fetched {len(upstream_conferences)} upstream conferences")
     print(f"Eligible gist rows with {BK21_COLUMN} >= {BK21_MIN:g}: {len(eligible_rows)}")
+    print(f"Merged {len(manual_conferences)} manual conferences from {MANUAL_CONFERENCES_PATH.relative_to(ROOT)}")
     print(f"Wrote {len(filtered)} conferences to {OUTPUT_PATH.relative_to(ROOT)}")
     print("Matched conferences:")
     for label in matched_labels:

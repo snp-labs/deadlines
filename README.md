@@ -29,6 +29,7 @@ This fork can be run in an auto-generated mode where `_data/conferences.yml` is 
 
 If you enable that workflow, this repository will periodically read the gist URL above and the upstream sec-deadlines data, then regenerate `_data/conferences.yml`.
 Treat `_data/conferences.yml` as generated output and update `scripts/sync_conferences.py` instead of editing the file by hand.
+Entries that do not exist in upstream sec-deadlines can be maintained in `_data/manual_conferences.yml`; the sync script merges them into the generated output.
 
 - Read the data format description below. **Note that the timezone format sign is inverted** (e.g., UTC+7 is written as `Etc/GMT-7`). It's [not a bug][0]. I hate this format too. I'd be happy to move to a different timezone JavaScript library that uses a friendlier format, but I don't have time for that.
 - Update `_data/conferences.yml`. You can do that on GitHub or locally after forking the repo.
