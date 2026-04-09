@@ -105,6 +105,19 @@ $(function() {
   confs.sort(function(a, b) {
     var aDeadline = deadlineByConf[a.id];
     var bDeadline = deadlineByConf[b.id];
+    var aIsTba = aDeadline === null || aDeadline === undefined;
+    var bIsTba = bDeadline === null || bDeadline === undefined;
+
+    if (aIsTba && bIsTba) {
+      return 0;
+    }
+    if (aIsTba) {
+      return 1;
+    }
+    if (bIsTba) {
+      return -1;
+    }
+
     var aDiff = today.diff(aDeadline);
     var bDiff = today.diff(bDeadline);
     if (aDiff < 0 && bDiff > 0) {
