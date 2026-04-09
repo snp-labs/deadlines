@@ -18,6 +18,7 @@
   - PRIV
   - CONF
   - ASTAR
+  bk21_plus_if_2018: 4.0
 - name: CCS
   description: ACM Conference on Computer and Communications Security
   year: 2026
@@ -34,6 +35,7 @@
   - PRIV
   - CONF
   - ASTAR
+  bk21_plus_if_2018: 4.0
 - name: USENIX Security
   description: USENIX Security Symposium
   year: 2027
@@ -50,6 +52,7 @@
   - PRIV
   - CONF
   - ASTAR
+  bk21_plus_if_2018: 3.0
 - name: NDSS
   description: ISOC Network and Distributed System Security Symposium
   year: 2026
@@ -66,6 +69,7 @@
   - PRIV
   - CONF
   - ASTAR
+  bk21_plus_if_2018: 2.0
 - name: ESORICS
   description: European Symposium on Research in Computer Security
   year: 2026
@@ -80,6 +84,7 @@
   - PRIV
   - CONF
   - CORE-A
+  bk21_plus_if_2018: 2.0
 - name: AsiaCCS
   description: ACM Asia Conference on Computer and Communications Security
   year: 2027
@@ -94,6 +99,7 @@
   - PRIV
   - CONF
   - CORE-A
+  bk21_plus_if_2018: 1.0
 - name: CSF
   description: IEEE Computer Security Foundations Symposium
   year: 2026
@@ -109,6 +115,7 @@
   - PRIV
   - CONF
   - CORE-A
+  bk21_plus_if_2018: 1.0
 - name: IFIP SEC
   description: IFIP International Information Security and Privacy Conference
   year: 2026
@@ -121,18 +128,7 @@
   - SEC
   - CONF
   - CORE-B
-- name: ISC
-  description: Information Security Conference
-  year: 2025
-  link: https://isc25.skku.edu/
-  deadline:
-  - 2025-06-11 23:59
-  date: October 20-22
-  place: Seoul, South Korea
-  tags:
-  - SEC
-  - PRIV
-  - CONF
+  bk21_plus_if_2018: 1.0
 - name: SOUPS
   description: Symposium on Usable Privacy and Security
   year: 2026
@@ -147,6 +143,7 @@
   - PRIV
   - CONF
   - CORE-A
+  bk21_plus_if_2018: 1.0
 - name: Crypto
   description: International Cryptology Conference
   year: 2026
@@ -160,6 +157,7 @@
   - CRYPTO
   - CONF
   - ASTAR
+  bk21_plus_if_2018: 4.0
 - name: Eurocrypt
   description: European Cryptology Conference
   year: 2026
@@ -172,6 +170,7 @@
   - CRYPTO
   - CONF
   - ASTAR
+  bk21_plus_if_2018: 4.0
 - name: Asiacrypt
   description: International Conference on the Theory and Application of Cryptology and Information Security
   year: 2025
@@ -185,6 +184,7 @@
   - CRYPTO
   - CONF
   - CORE-A
+  bk21_plus_if_2018: 2.0
 - name: FC
   description: Financial Cryptography and Data Security
   year: 2026
@@ -198,6 +198,7 @@
   - CRYPTO
   - CONF
   - CORE-A
+  bk21_plus_if_2018: 1.0
 - name: TCC
   description: Theory of Cryptography Conference
   year: 2026
@@ -210,6 +211,7 @@
   - CRYPTO
   - CONF
   - CORE-B
+  bk21_plus_if_2018: 1.0
 - name: RAID
   description: International Symposium on Research in Attacks, Intrusions and Defenses
   year: 2026
@@ -222,6 +224,7 @@
   - SEC
   - CONF
   - CORE-A
+  bk21_plus_if_2018: 2.0
 - name: ACSAC
   description: Annual Computer Security Applications Conference
   year: 2025
@@ -234,6 +237,7 @@
   - SEC
   - CONF
   - CORE-A
+  bk21_plus_if_2018: 2.0
 - name: DSN
   description: The International Conference on Dependable Systems and Networks
   year: 2026
@@ -247,20 +251,7 @@
   - SEC
   - CONF
   - CORE-A
-- name: The Web Conference
-  description: International Conference on the World Wide Web
-  year: 2026
-  link: https://www2026.thewebconf.org
-  deadline:
-  - 2025-10-07 23:59
-  comment: Abstract deadline September 30 AoE.
-  date: April 13-17
-  place: Dubai, United Arab Emirates
-  tags:
-  - SEC
-  - CONF
-  - PRIV
-  - ASTAR
+  bk21_plus_if_2018: 2.0
 - name: IMC
   year: 2026
   description: ACM Internet Measurement Conference
@@ -276,6 +267,7 @@
   - PRIV
   - CONF
   - CORE-A
+  bk21_plus_if_2018: 2.0
 - name: ICSE
   description: IEEE/ACM International Conference on Software Engineering
   year: 2027
@@ -289,6 +281,7 @@
   - SEC
   - CONF
   - ASTAR
+  bk21_plus_if_2018: 4.0
 - name: ASE
   description: IEEE/ACM Automated Software Engineering
   year: 2026
@@ -301,6 +294,7 @@
   - SEC
   - CONF
   - ASTAR
+  bk21_plus_if_2018: 3.0
 - name: ISSTA
   description: ACM SIGSOFT International Symposium on Software Testing and Analysis
   year: 2026
@@ -312,3 +306,4 @@
   tags:
   - SEC
   - CONF
+  bk21_plus_if_2018: 2.0

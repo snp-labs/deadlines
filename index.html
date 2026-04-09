@@ -109,6 +109,9 @@
                 <h2><a href="{{conf.link}}">{{conf.name}} {{conf.year}}</a></h2>
                 <div class="meta">
                   {{ conf.description }}<br />
+                  {% if conf.bk21_plus_if_2018 %}
+                  <span class="score-badge">BK21 IF (2018): {{ conf.bk21_plus_if_2018 }}</span><br />
+                  {% endif %}
                   {% if conf.dblp %}
                   <a href="{{conf.dblp}}">DBLP</a><br />
                   {% endif %}

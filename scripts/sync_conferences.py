@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import copy
 import csv
 import io
 import os
@@ -104,16 +105,19 @@ def load_gist_filter(
     return allowed_dblp, allowed_short_names, allowed_full_names, eligible_rows
 
 
-def conference_matches(
+def conference_match_keys(
     conf: dict,
     allowed_dblp: set[str],
     allowed_short_names: set[str],
     allowed_full_names: set[str],
     short_name_counts: dict[str, int],
-) -> bool:
+) -> set[str]:
+    match_keys: set[str] = set()
     dblp_key = extract_dblp_key(conf.get("dblp"))
     if dblp_key:
-        return dblp_key in allowed_dblp
+        if dblp_key in allowed_dblp:
+            match_keys.add(f"dblp:{dblp_key}")
+        return match_keys
 
     candidates = {normalize(conf.get("description"))}
     for alias in NAME_ALIASES.get(conf.get("name"), set()):
@@ -129,13 +133,35 @@ def conference_matches(
         if not candidate:
             continue
         if candidate in allowed_short_names or candidate in allowed_full_names:
-            return True
+            match_keys.add(f"name:{candidate}")
         if len(candidate) >= 8 and any(
             candidate in full_name or full_name in candidate for full_name in allowed_full_names
         ):
-            return True
+            match_keys.add(f"name:{candidate}")
 
-    return False
+    return match_keys
+
+
+def build_score_lookup(eligible_rows: list[dict[str, str]]) -> dict[str, float]:
+    score_lookup: dict[str, float] = {}
+    for row in eligible_rows:
+        score = parse_numeric(row.get(BK21_COLUMN))
+        if score is None:
+            continue
+
+        dblp_key = row.get("DBLP Key", "").strip()
+        if dblp_key:
+            score_lookup[f"dblp:{dblp_key}"] = score
+
+        short_name = normalize(row.get("약자", ""))
+        if short_name:
+            score_lookup[f"name:{short_name}"] = score
+
+        full_name = normalize(row.get("학회명", ""))
+        if full_name:
+            score_lookup[f"name:{full_name}"] = score
+
+    return score_lookup
 
 
 def dump_yaml(conferences: list[dict]) -> str:
@@ -160,23 +186,32 @@ def main() -> int:
 
     upstream_conferences = yaml.safe_load(upstream_yaml)
     allowed_dblp, allowed_short_names, allowed_full_names, eligible_rows = load_gist_filter(gist_csv)
+    score_lookup = build_score_lookup(eligible_rows)
     short_name_counts: dict[str, int] = {}
     for conf in upstream_conferences:
         name_key = normalize(conf.get("name"))
         if name_key:
             short_name_counts[name_key] = short_name_counts.get(name_key, 0) + 1
 
-    filtered = [
-        conf
-        for conf in upstream_conferences
-        if conference_matches(
+    filtered = []
+    for conf in upstream_conferences:
+        match_keys = conference_match_keys(
             conf,
             allowed_dblp,
             allowed_short_names,
             allowed_full_names,
             short_name_counts,
         )
-    ]
+        if not match_keys:
+            continue
+
+        matched_scores = [score_lookup[key] for key in match_keys if key in score_lookup]
+        if not matched_scores:
+            continue
+
+        generated_conf = copy.deepcopy(conf)
+        generated_conf["bk21_plus_if_2018"] = max(matched_scores)
+        filtered.append(generated_conf)
 
     OUTPUT_PATH.write_text(dump_yaml(filtered), encoding="utf-8")
 
