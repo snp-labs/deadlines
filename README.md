@@ -1,4 +1,21 @@
-# Security and Privacy deadlines countdown
+# BK21 Security Deadlines
+
+Site: https://aals7501.github.io/sec-deadlines/
+
+This repository maintains a GitHub Pages deadline tracker for security, privacy, crypto, and selected distributed systems conferences.
+
+It is based on [sec-deadlines](https://github.com/sec-deadlines/sec-deadlines.github.io), with additional filtering and tagging for:
+
+- `BK21플러스 IF (2018) >= 1`
+- `Distributed Systems` entries that overlap the BK21 list
+- manually maintained conferences that do not exist in upstream `sec-deadlines`
+
+Data sources:
+
+- upstream `sec-deadlines`: `https://github.com/sec-deadlines/sec-deadlines.github.io`
+- BK21 CSV gist: `https://gist.github.com/Pusnow/6eb933355b5cb8d31ef1abcb3c3e1206`
+
+The generated site data lives in `_data/conferences.yml`. Do not edit that file by hand unless you intentionally want to bypass the sync pipeline.
 
 Based on [ai-deadlines](https://aideadlin.es) by @abshkdz
 
@@ -19,9 +36,9 @@ Examples where conferences were **not** a good fit are [FTC's PrivacyCon](https:
 [Real World Crypto (RWC)](https://rwc.iacr.org/2026/) (see [sec-deadlines/#475](https://github.com/sec-deadlines/sec-deadlines.github.io/issues/475)).
 Once PrivacyCon or RWC begin publishing proceedings, they'd become fit for inclusion.
 
-## Adding/updating a conference
+## How This Fork Works
 
-This fork can be run in an auto-generated mode where `_data/conferences.yml` is rebuilt from:
+`_data/conferences.yml` is rebuilt from:
 
 - `sec-deadlines/sec-deadlines.github.io` upstream conference data
 - the `Pusnow` gist: `https://gist.github.com/Pusnow/6eb933355b5cb8d31ef1abcb3c3e1206`
@@ -31,10 +48,19 @@ If you enable that workflow, this repository will periodically read the gist URL
 Treat `_data/conferences.yml` as generated output and update `scripts/sync_conferences.py` instead of editing the file by hand.
 Entries that do not exist in upstream sec-deadlines can be maintained in `_data/manual_conferences.yml`; the sync script merges them into the generated output.
 
+Current site-level filters and tags:
+
+- topic tags: `SEC`, `PRIV`, `CRYPTO`, `DIST`
+- BK21 score tags: `BK21-4`, `BK21-3`, `BK21-2`, `BK21-1`
+
+## Adding/Updating Conferences
+
 - Read the data format description below. **Note that the timezone format sign is inverted** (e.g., UTC+7 is written as `Etc/GMT-7`). It's [not a bug][0]. I hate this format too. I'd be happy to move to a different timezone JavaScript library that uses a friendlier format, but I don't have time for that.
-- Update `_data/conferences.yml`. You can do that on GitHub or locally after forking the repo.
+- If the conference already exists in upstream `sec-deadlines`, update the sync logic or wait for upstream changes.
+- If the conference does not exist in upstream `sec-deadlines`, add it to `_data/manual_conferences.yml`.
+- Regenerate `_data/conferences.yml` by running `python3 scripts/sync_conferences.py`.
 - Please check if an entry for a prior year's offering exists; if so, please update the prior entry, rather than adding a new one.
-- Send a pull request
+- Commit and push the result
 
 ### Conference entry record
 
@@ -66,7 +92,7 @@ Descriptions of the fields:
 | `timezone`    | [Timezone][5] in [tz][1] format. By default is UTC-12 ([AoE][2])                        |
 | `date`        | When the conference is happening                                                        |
 | `place`       | Where the conference is happening                                                       |
-| `tags`        | One or multiple [tags][3]: `SEC`, `PRIV`, or `CRYPTO` (topic); `CONF` or `SHOP` (venue) |
+| `tags`        | One or multiple tags such as `SEC`, `PRIV`, `CRYPTO`, `DIST`, `CONF`, `SHOP`, `BK21-4`, `BK21-3`, `BK21-2`, `BK21-1` |
 
 Fields marked with asterisk (\*) are required.
 
