@@ -5,19 +5,15 @@ filter1:
     tag: PRIV
   - name: Crypto
     tag: CRYPTO
+  - name: Distributed Systems
+    tag: DIST
 
 filter2:
-  - name: Conferences
-    tag: CONF
-  - name: Workshops
-    tag: SHOP
-  - name: Journals
-    tag: JRN
-
-filter3:
-  - name: A*
-    tag: ASTAR
-  - name: A
-    tag: CORE-A
-  - name: B
-    tag: CORE-B
+  - name: 4.0
+    tag: BK21-4
+  - name: 3.0
+    tag: BK21-3
+  - name: 2.0
+    tag: BK21-2
+  - name: 1.0
+    tag: BK21-1

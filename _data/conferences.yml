@@ -18,6 +18,7 @@
   - PRIV
   - CONF
   - ASTAR
+  - BK21-4
   bk21_plus_if_2018: 4.0
 - name: CCS
   description: ACM Conference on Computer and Communications Security
@@ -35,6 +36,7 @@
   - PRIV
   - CONF
   - ASTAR
+  - BK21-4
   bk21_plus_if_2018: 4.0
 - name: USENIX Security
   description: USENIX Security Symposium
@@ -52,6 +54,7 @@
   - PRIV
   - CONF
   - ASTAR
+  - BK21-3
   bk21_plus_if_2018: 3.0
 - name: NDSS
   description: ISOC Network and Distributed System Security Symposium
@@ -69,6 +72,8 @@
   - PRIV
   - CONF
   - ASTAR
+  - BK21-2
+  - DIST
   bk21_plus_if_2018: 2.0
 - name: ESORICS
   description: European Symposium on Research in Computer Security
@@ -84,6 +89,7 @@
   - PRIV
   - CONF
   - CORE-A
+  - BK21-2
   bk21_plus_if_2018: 2.0
 - name: AsiaCCS
   description: ACM Asia Conference on Computer and Communications Security
@@ -99,6 +105,7 @@
   - PRIV
   - CONF
   - CORE-A
+  - BK21-1
   bk21_plus_if_2018: 1.0
 - name: CSF
   description: IEEE Computer Security Foundations Symposium
@@ -115,6 +122,7 @@
   - PRIV
   - CONF
   - CORE-A
+  - BK21-1
   bk21_plus_if_2018: 1.0
 - name: IFIP SEC
   description: IFIP International Information Security and Privacy Conference
@@ -128,6 +136,7 @@
   - SEC
   - CONF
   - CORE-B
+  - BK21-1
   bk21_plus_if_2018: 1.0
 - name: SOUPS
   description: Symposium on Usable Privacy and Security
@@ -143,6 +152,7 @@
   - PRIV
   - CONF
   - CORE-A
+  - BK21-1
   bk21_plus_if_2018: 1.0
 - name: Crypto
   description: International Cryptology Conference
@@ -157,6 +167,7 @@
   - CRYPTO
   - CONF
   - ASTAR
+  - BK21-4
   bk21_plus_if_2018: 4.0
 - name: Eurocrypt
   description: European Cryptology Conference
@@ -170,6 +181,7 @@
   - CRYPTO
   - CONF
   - ASTAR
+  - BK21-4
   bk21_plus_if_2018: 4.0
 - name: Asiacrypt
   description: International Conference on the Theory and Application of Cryptology and Information Security
@@ -184,6 +196,7 @@
   - CRYPTO
   - CONF
   - CORE-A
+  - BK21-2
   bk21_plus_if_2018: 2.0
 - name: FC
   description: Financial Cryptography and Data Security
@@ -198,6 +211,7 @@
   - CRYPTO
   - CONF
   - CORE-A
+  - BK21-1
   bk21_plus_if_2018: 1.0
 - name: TCC
   description: Theory of Cryptography Conference
@@ -211,6 +225,7 @@
   - CRYPTO
   - CONF
   - CORE-B
+  - BK21-1
   bk21_plus_if_2018: 1.0
 - name: RAID
   description: International Symposium on Research in Attacks, Intrusions and Defenses
@@ -224,6 +239,7 @@
   - SEC
   - CONF
   - CORE-A
+  - BK21-2
   bk21_plus_if_2018: 2.0
 - name: ACSAC
   description: Annual Computer Security Applications Conference
@@ -237,6 +253,7 @@
   - SEC
   - CONF
   - CORE-A
+  - BK21-2
   bk21_plus_if_2018: 2.0
 - name: DSN
   description: The International Conference on Dependable Systems and Networks
@@ -251,6 +268,7 @@
   - SEC
   - CONF
   - CORE-A
+  - BK21-2
   bk21_plus_if_2018: 2.0
 - name: IMC
   year: 2026
@@ -267,6 +285,7 @@
   - PRIV
   - CONF
   - CORE-A
+  - BK21-2
   bk21_plus_if_2018: 2.0
 - name: ICSE
   description: IEEE/ACM International Conference on Software Engineering
@@ -281,6 +300,7 @@
   - SEC
   - CONF
   - ASTAR
+  - BK21-4
   bk21_plus_if_2018: 4.0
 - name: ASE
   description: IEEE/ACM Automated Software Engineering
@@ -294,6 +314,7 @@
   - SEC
   - CONF
   - ASTAR
+  - BK21-3
   bk21_plus_if_2018: 3.0
 - name: ISSTA
   description: ACM SIGSOFT International Symposium on Software Testing and Analysis
@@ -306,6 +327,7 @@
   tags:
   - SEC
   - CONF
+  - BK21-2
   bk21_plus_if_2018: 2.0
 - name: MobiCom
   description: ACM International Conference on Mobile Computing and Networking
@@ -319,6 +341,7 @@
   place: Austin, Texas, USA
   tags:
   - CONF
+  - BK21-4
   bk21_plus_if_2018: 4.0
 - name: PODC
   description: ACM Symposium on Principles of Distributed Computing
@@ -331,6 +354,8 @@
   place: Egham, England
   tags:
   - CONF
+  - BK21-3
+  - DIST
   bk21_plus_if_2018: 3.0
 - name: ICDCS
   description: IEEE International Conference on Distributed Computing Systems
@@ -343,6 +368,8 @@
   place: Seoul, South Korea
   tags:
   - CONF
+  - BK21-3
+  - DIST
   bk21_plus_if_2018: 3.0
 - name: IPDPS
   description: IEEE International Parallel and Distributed Processing Symposium
@@ -355,6 +382,8 @@
   place: New Orleans, USA
   tags:
   - CONF
+  - BK21-2
+  - DIST
   bk21_plus_if_2018: 2.0
 - name: HPDC
   description: ACM International Symposium on High-Performance Parallel and Distributed Computing
@@ -367,6 +396,8 @@
   place: Cleveland, OH, USA
   tags:
   - CONF
+  - BK21-2
+  - DIST
   bk21_plus_if_2018: 2.0
 - name: DISC
   description: International Symposium on Distributed Computing
@@ -379,6 +410,8 @@
   place: Rome, Italy
   tags:
   - CONF
+  - BK21-2
+  - DIST
   bk21_plus_if_2018: 2.0
 - name: HiPC
   description: IEEE International Conference on High Performance Computing, Data, and Analytics
@@ -391,6 +424,7 @@
   place: Bengaluru, India
   tags:
   - CONF
+  - BK21-1
   bk21_plus_if_2018: 1.0
 - name: SRDS
   description: IEEE International Symposium on Reliable Distributed Systems
@@ -403,4 +437,6 @@
   place: Rome, Italy
   tags:
   - CONF
+  - BK21-1
+  - DIST
   bk21_plus_if_2018: 1.0

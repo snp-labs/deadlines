@@ -39,6 +39,34 @@ NAME_ALIASES = {
 }
 
 
+def is_distributed_systems_conference(conf: dict) -> bool:
+    haystack = " ".join(
+        str(conf.get(field, "")) for field in ("name", "description", "comment")
+    ).lower()
+    return "distributed" in haystack
+
+
+def score_tag(score: float) -> str:
+    return f"BK21-{int(score)}"
+
+
+def augment_conference(conf: dict, score: float | None = None) -> dict:
+    updated = copy.deepcopy(conf)
+    tags = list(updated.get("tags", []))
+
+    if score is not None:
+        updated["bk21_plus_if_2018"] = score
+        bk_tag = score_tag(score)
+        if bk_tag not in tags:
+          tags.append(bk_tag)
+
+    if is_distributed_systems_conference(updated) and "DIST" not in tags:
+        tags.append("DIST")
+
+    updated["tags"] = tags
+    return updated
+
+
 def fetch_text(url: str) -> str:
     request = urllib.request.Request(
         url,
@@ -219,16 +247,14 @@ def main() -> int:
         if not matched_scores:
             continue
 
-        generated_conf = copy.deepcopy(conf)
-        generated_conf["bk21_plus_if_2018"] = max(matched_scores)
-        filtered.append(generated_conf)
+        filtered.append(augment_conference(conf, max(matched_scores)))
 
     manual_conferences = load_manual_conferences()
     existing_keys = {(conf.get("name"), conf.get("year")) for conf in filtered}
     for conf in manual_conferences:
         conf_key = (conf.get("name"), conf.get("year"))
         if conf_key not in existing_keys:
-            filtered.append(conf)
+            filtered.append(augment_conference(conf, conf.get("bk21_plus_if_2018")))
             existing_keys.add(conf_key)
 
     OUTPUT_PATH.write_text(dump_yaml(filtered), encoding="utf-8")

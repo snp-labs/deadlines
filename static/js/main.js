@@ -121,8 +121,6 @@ $(function() {
   // Read filter data from Jekyll
   var filter1 = {{ site.data.filters.filter1 | jsonify }};
   var filter2 = {{ site.data.filters.filter2 | jsonify }};
-  var filter3 = {{ site.data.filters.filter3 | jsonify }};
-
   // Combine all filters into a single array
   var all_tags = [];
   var toggle_status = {};
@@ -136,7 +134,6 @@ $(function() {
 
   processFilters(filter1);
   processFilters(filter2);
-  processFilters(filter3);
 
   // Retrieve stored preferences
   var tags = store.get('{{ site.domain }}');
@@ -160,8 +157,7 @@ $(function() {
   // Track selected filters
   let selectedFilters = {
     filter1: new Set(),
-    filter2: new Set(),
-    filter3: new Set()
+    filter2: new Set()
   };
 
   function updateConfList() {
