@@ -24,6 +24,8 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          ref: main
 
       - name: Set up Python
         if: github.event_name != 'push'
@@ -50,7 +52,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add _data/conferences.yml
           git commit -m "Sync conferences from upstream and gist"
-          git push
+          git push origin HEAD:main
 
       - name: Set up Pages
         uses: actions/configure-pages@v5
