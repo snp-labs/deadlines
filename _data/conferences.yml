@@ -18,6 +18,7 @@
   - PRIV
   - CONF
   - ASTAR
+  - TOP4
   - BK21-4
   bk21_plus_if_2018: 4.0
 - name: CCS
@@ -36,6 +37,7 @@
   - PRIV
   - CONF
   - ASTAR
+  - TOP4
   - BK21-4
   bk21_plus_if_2018: 4.0
 - name: USENIX Security
@@ -54,24 +56,25 @@
   - PRIV
   - CONF
   - ASTAR
+  - TOP4
   - BK21-3
   bk21_plus_if_2018: 3.0
 - name: NDSS
   description: ISOC Network and Distributed System Security Symposium
-  year: 2026
-  link: https://www.ndss-symposium.org/ndss2026/submissions/call-for-papers/
+  year: 2027
+  link: https://www.ndss-symposium.org/ndss2027/submissions/call-for-papers/
   dblp: https://dblp.org/db/conf/ndss/index.html
   deadline:
-  - 2025-04-23 23:59
-  - 2025-08-06 23:59
-  comment: Abstract registration required (1 week before deadline AoE).
-  date: February 23-27
-  place: San Diego, CA, USA
+  - 2026-05-06 23:59
+  - 2026-08-19 23:59
+  date: TBD
+  place: TBD
   tags:
   - SEC
   - PRIV
   - CONF
   - ASTAR
+  - TOP4
   - BK21-2
   - DIST
   bk21_plus_if_2018: 2.0
@@ -243,12 +246,12 @@
   bk21_plus_if_2018: 2.0
 - name: ACSAC
   description: Annual Computer Security Applications Conference
-  year: 2025
-  link: https://www.acsac.org/2025/submissions/papers/
+  year: 2026
+  link: https://www.acsac.org/2026/submissions/papers/
   deadline:
-  - 2025-05-30 23:59
-  date: Dec 9-13
-  place: Honolulu, Hawaii, USA
+  - 2026-05-26 23:59
+  date: Dec 7-11
+  place: Los Angeles, CA, USA
   tags:
   - SEC
   - CONF
