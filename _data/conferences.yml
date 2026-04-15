@@ -330,6 +330,7 @@
   tags:
   - SEC
   - CONF
+  - CORE-A
   - BK21-2
   bk21_plus_if_2018: 2.0
 - name: MobiCom
