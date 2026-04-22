@@ -130,6 +130,21 @@
   - CORE-A
   - BK21-1
   bk21_plus_if_2018: 1.0
+- name: IFIP SEC
+  description: IFIP International Information Security and Privacy Conference
+  year: 2026
+  link: https://ifipsec.org/cfp.html
+  dblp: https://dblp.org/db/conf/sec/index.html
+  deadline:
+  - 2025-12-19 23:59
+  date: June 9 - 11
+  place: Perth, Australia
+  tags:
+  - SEC
+  - CONF
+  - CORE-B
+  - BK21-1
+  bk21_plus_if_2018: 1.0
 - name: SOUPS
   description: Symposium on Usable Privacy and Security
   year: 2026
@@ -157,6 +172,21 @@
   timezone: Etc/GMT+8
   date: August 17-20
   place: Santa Barbara, CA, USA
+  tags:
+  - CRYPTO
+  - CONF
+  - ASTAR
+  - BK21-4
+  bk21_plus_if_2018: 4.0
+- name: Eurocrypt
+  description: European Cryptology Conference
+  year: 2026
+  link: https://eurocrypt.iacr.org/2026/
+  dblp: https://dblp.org/db/conf/eurocrypt/index.html
+  deadline:
+  - 2025-10-02 23:59
+  date: May 10-14
+  place: Rome, Italy
   tags:
   - CRYPTO
   - CONF
@@ -210,6 +240,36 @@
   - CORE-B
   - BK21-1
   bk21_plus_if_2018: 1.0
+- name: RAID
+  description: International Symposium on Research in Attacks, Intrusions and Defenses
+  year: 2026
+  link: https://raid2026.org
+  dblp: https://dblp.org/db/conf/raid/index.html
+  deadline:
+  - 2026-04-16 23:59
+  date: October 11-14
+  place: Lancaster, UK
+  tags:
+  - SEC
+  - CONF
+  - CORE-A
+  - BK21-2
+  bk21_plus_if_2018: 2.0
+- name: SAC
+  description: ACM/SIGAPP Symposium On Applied Computing
+  year: 2026
+  link: https://www.sigapp.org/sac/sac2026/
+  dblp: https://dblp.org/db/conf/sac/index.html
+  deadline:
+  - 2025-10-17 23:59
+  date: March 23-27
+  place: Thessaloniki, Greece
+  tags:
+  - SEC
+  - CONF
+  - OTHERS
+  - BK21-1
+  bk21_plus_if_2018: 1.0
 - name: ACSAC
   description: Annual Computer Security Applications Conference
   year: 2026
@@ -241,6 +301,57 @@
   - CORE-A
   - BK21-2
   bk21_plus_if_2018: 2.0
+- name: The Web Conference
+  description: International Conference on the World Wide Web
+  year: 2026
+  link: https://www2026.thewebconf.org
+  dblp: https://dblp.org/db/conf/www/index.html
+  deadline:
+  - 2025-10-07 23:59
+  comment: Abstract deadline September 30 AoE.
+  date: April 13-17
+  place: Dubai, United Arab Emirates
+  tags:
+  - SEC
+  - CONF
+  - PRIV
+  - ASTAR
+  - BK21-4
+  bk21_plus_if_2018: 4.0
+- name: ATC
+  description: ACM SIGOPS Annual Technical Conference
+  year: 2026
+  link: https://sigops.org/s/conferences/atc/2026/index.html
+  dblp: https://dblp.org/db/conf/usenix/index.html
+  deadline:
+  - 2026-06-10 23:59
+  date: November 15-18
+  place: Shatin, Hong Kong
+  tags:
+  - SEC
+  - CONF
+  - PRIV
+  - CORE-A
+  - BK21-3
+  bk21_plus_if_2018: 3.0
+- name: IMC
+  year: 2026
+  description: ACM Internet Measurement Conference
+  link: https://conferences.sigcomm.org/imc/2026/
+  dblp: https://dblp.org/db/conf/imc/index.html
+  deadline:
+  - 2025-11-20 23:59
+  - 2026-04-29 23:59
+  comment: Abstract registration required (1 week before deadline AoE).
+  date: November 3-6
+  place: Karlsruhe, Germany
+  tags:
+  - SEC
+  - PRIV
+  - CONF
+  - CORE-A
+  - BK21-2
+  bk21_plus_if_2018: 2.0
 - name: ICSE
   description: IEEE/ACM International Conference on Software Engineering
   year: 2027
@@ -256,6 +367,20 @@
   - ASTAR
   - BK21-4
   bk21_plus_if_2018: 4.0
+- name: ASE
+  description: IEEE/ACM Automated Software Engineering
+  year: 2026
+  link: https://conf.researchr.org/home/ase-2026
+  deadline:
+  - 2026-03-26 23:59
+  date: October 12 - 16
+  place: Munich, Germany
+  tags:
+  - SEC
+  - CONF
+  - ASTAR
+  - BK21-3
+  bk21_plus_if_2018: 3.0
 - name: ISSTA
   description: ACM SIGSOFT International Symposium on Software Testing and Analysis
   year: 2026
