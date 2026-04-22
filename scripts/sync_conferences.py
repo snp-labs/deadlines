@@ -105,12 +105,14 @@ def extract_dblp_key(dblp_url: str | None) -> str | None:
 
 def load_gist_filter(
     csv_text: str,
-) -> tuple[set[str], set[str], set[str], list[dict[str, str]]]:
+) -> tuple[set[str], set[str], set[str], dict[str, set[str]], dict[str, set[str]], list[dict[str, str]]]:
     reader = csv.DictReader(io.StringIO(csv_text))
     eligible_rows: list[dict[str, str]] = []
     allowed_dblp: set[str] = set()
     allowed_short_names: set[str] = set()
     allowed_full_names: set[str] = set()
+    short_to_full_names: dict[str, set[str]] = {}
+    dblp_to_full_names: dict[str, set[str]] = {}
 
     for row in reader:
         score = parse_numeric(row.get(BK21_COLUMN))
@@ -130,8 +132,33 @@ def load_gist_filter(
         full_name = normalize(row.get("학회명", ""))
         if full_name:
             allowed_full_names.add(full_name)
+            if short_name:
+                short_to_full_names.setdefault(short_name, set()).add(full_name)
+            if dblp_key:
+                dblp_to_full_names.setdefault(dblp_key, set()).add(full_name)
 
-    return allowed_dblp, allowed_short_names, allowed_full_names, eligible_rows
+    return allowed_dblp, allowed_short_names, allowed_full_names, short_to_full_names, dblp_to_full_names, eligible_rows
+
+
+def full_name_matches(conf: dict, full_name: str) -> bool:
+    description = normalize(conf.get("description"))
+    name = normalize(conf.get("name"))
+    if not description:
+        return False
+
+    variants = {full_name}
+    suffixes = {name}
+    for alias in NAME_ALIASES.get(conf.get("name"), set()):
+        suffixes.add(normalize(alias))
+
+    for suffix in suffixes:
+        if suffix and full_name.endswith(suffix):
+            variants.add(full_name[: -len(suffix)])
+
+    return any(
+        variant and (description in variant or variant in description or name + description == variant)
+        for variant in variants
+    )
 
 
 def conference_match_keys(
@@ -139,12 +166,17 @@ def conference_match_keys(
     allowed_dblp: set[str],
     allowed_short_names: set[str],
     allowed_full_names: set[str],
+    short_to_full_names: dict[str, set[str]],
+    dblp_to_full_names: dict[str, set[str]],
     short_name_counts: dict[str, int],
 ) -> set[str]:
     match_keys: set[str] = set()
     dblp_key = extract_dblp_key(conf.get("dblp"))
     if dblp_key:
-        if dblp_key in allowed_dblp:
+        if dblp_key in allowed_dblp and any(
+            full_name_matches(conf, full_name)
+            for full_name in dblp_to_full_names.get(dblp_key, set())
+        ):
             match_keys.add(f"dblp:{dblp_key}")
         return match_keys
 
@@ -161,7 +193,12 @@ def conference_match_keys(
     for candidate in candidates:
         if not candidate:
             continue
-        if candidate in allowed_short_names or candidate in allowed_full_names:
+        if candidate in allowed_full_names:
+            match_keys.add(f"name:{candidate}")
+        if candidate in allowed_short_names and any(
+            full_name_matches(conf, full_name)
+            for full_name in short_to_full_names.get(candidate, set())
+        ):
             match_keys.add(f"name:{candidate}")
         if len(candidate) >= 8 and any(
             candidate in full_name or full_name in candidate for full_name in allowed_full_names
@@ -223,7 +260,14 @@ def main() -> int:
     gist_csv = fetch_text(GIST_CSV_URL)
 
     upstream_conferences = yaml.safe_load(upstream_yaml)
-    allowed_dblp, allowed_short_names, allowed_full_names, eligible_rows = load_gist_filter(gist_csv)
+    (
+        allowed_dblp,
+        allowed_short_names,
+        allowed_full_names,
+        short_to_full_names,
+        dblp_to_full_names,
+        eligible_rows,
+    ) = load_gist_filter(gist_csv)
     score_lookup = build_score_lookup(eligible_rows)
     short_name_counts: dict[str, int] = {}
     for conf in upstream_conferences:
@@ -238,6 +282,8 @@ def main() -> int:
             allowed_dblp,
             allowed_short_names,
             allowed_full_names,
+            short_to_full_names,
+            dblp_to_full_names,
             short_name_counts,
         )
         if not match_keys:
