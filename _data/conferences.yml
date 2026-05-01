@@ -95,7 +95,7 @@
   - CORE-A
   - BK21-2
   bk21_plus_if_2018: 2.0
-- name: AsiaCCS
+- name: ASIA CCS
   description: ACM Asia Conference on Computer and Communications Security
   year: 2027
   link: https://asiaccs2027.cityu.edu.mo/home/index.html
